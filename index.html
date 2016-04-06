@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>test</title>
 
   <style type="text/css">
@@ -8,6 +9,7 @@
   body {padding:0; margin:0;}
   img { width:1920px; overflow: hidden;}
   .btn { position: fixed; top: 0; right: 0; width: 50px; height: 50px; background-color: #222; text-align: center; color: #fff; padding-top: 6px; box-sizing: border-box; }
+  a, span { font-size: 12px; }
 
   </style>
 
@@ -17,19 +19,25 @@
     <div class="container">
       <img id="bg" src="1.png">
     </div>
-    <a class="btn">Click Me!</a>
+    <a class="btn">시안변경<br/><span class="num">현재 1번</span></a>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
   $(function() {
-   $('.btn').click(function(e){
+    $('.btn').click(function(e){
       e.preventDefault();
-      if($("#bg").attr('src')=="1.png")
-        $("#bg").attr('src',"2.png");
-      else if($("#bg").attr('src')=="2.png")
+      if($("#bg").attr('src')=="1.png") {
+          $("#bg").attr('src',"2.png");
+          $('.num').text('현재 2번')
+        }
+      else if($("#bg").attr('src')=="2.png") {
         $("#bg").attr('src',"3.png");
-      else
+        $('.num').text('현재 3번')
+      }
+      else {
         $("#bg").attr('src',"1.png");
+        $('.num').text('현재 1번')
+      }
    });
   });
 </script>
